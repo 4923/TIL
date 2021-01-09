@@ -17,3 +17,9 @@
 
 * 2021-01-08
     * 백준 3단계 완료: sys, RecursionError
+
+* 2021-01-09
+    * Kaggle titanic (Score: 0.77272)
+        * 기본세팅으로 0.77272
+        * 타이틀 high 추가, 나이 10단위로 세분화 했을 때 0.77272
+        * Pclss -> Cabin 결측치 보완 중
