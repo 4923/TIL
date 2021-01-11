@@ -37,7 +37,7 @@
     * BOJ 6단계 완료
     * TIL 정리 (BOJ 4-6단계)
         * `tuple` vs `set`
-        * str formatting
-            * f-string 소수점 자리 표기
-            * round 자리수 지정해서 반올림
+        * round 자리수 지정해서 반올림
         * dict 복습 정리
+    * Coursera : Machine Learning 1주차
+        * Introduction 완료: 기본개념, 지도학습(분류,회구) 비지도학습 등
