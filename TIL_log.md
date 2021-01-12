@@ -40,4 +40,10 @@
         * round 자리수 지정해서 반올림
         * dict 복습 정리
     * Coursera : Machine Learning 1주차
-        * Introduction 완료: 기본개념, 지도학습(분류,회구) 비지도학습 등
+        * Introduction 완료: 기본개념, 지도학습(분류,회귀) 비지도학습 등
+
+* 2021-01-12
+    * BOJ ~7-2
+    * 42 서울: 기수당 한번이라던 썰... 어디발 낭설인지 모르겠지만 같은 명의 새 계정으로 시도해도 무관하다는 답변 받음. 초기화 기간은 에꼴 42에서 정하고 몇 달정도 걸린다고 (13/11)
+    * Coursera : Machine Learning 1주차
+        * Model and Cost Function 수강 중 -> 선형회귀 보충
