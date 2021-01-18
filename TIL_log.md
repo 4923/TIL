@@ -57,3 +57,18 @@
         * Parameter Learning 수강 완료
         * Review Test 완료
     * 42Seoul: Check-in meeting register (1/28 10:00 예정)
+
+* 2021-01-15
+    * BOJ 1152,2908,5622
+
+* 2021-01-16
+    * 외출로 일일커밋 X
+
+* 2021-01-17
+    * 겨울방학 코딩테스트 대비 캠프 OT
+    * [LeeBrosCode](https://leebroscode.com) 기본문제 54제 - 단순 반복문 (1) 까지
+
+* 2021-01-18
+    * 컨디션 난조... 코테캠프 1일차 기본문제 과제 풀이
+    * Class 보충 필요
+    * Coursera : Machine Learning 1주차 마무리 / 과제 마감일 (완료)
