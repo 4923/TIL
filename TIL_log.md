@@ -69,6 +69,8 @@
     * [LeeBrosCode](https://leebroscode.com) 기본문제 54제 - 단순 반복문 (1) 까지
 
 * 2021-01-18
-    * 컨디션 난조... 코테캠프 1일차 기본문제 과제 풀이
-    * Class 보충 필요
+    * 코딩테스트 캠프
+        * 컨디션 난조... 코테캠프 1일차 기본문제 과제 풀이 (진행중)
+        * Class 보충 필요
+    * BOJ 2941, 1316 Failed (재시도 필요)
     * Coursera : Machine Learning 1주차 마무리 / 과제 마감일 (완료)
