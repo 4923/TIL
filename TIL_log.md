@@ -99,3 +99,8 @@
 
 * 2021-02-07
     * 신찬수교수님 자료구조 강의 수강
+
+* 2021-02-08
+    * Coursera Machine Learning - Andrew Ng 강좌 1주차 마무리
+        * Linear Algebra Review 단원 끝내고 Review test 통과
+    * 2주차 Enviroment Setup Instructions, Octave 설치
