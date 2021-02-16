@@ -109,4 +109,14 @@
     * 설 연휴 휴가
 
 * 2021-02-14
-    * BOJ 10250, TIL/Python/error_message_report 문법오류 문서 추가
+    * BOJ 10250, 1193, 2775, 
+    * TIL/Python/error_message_report 문법오류 문서 추가
+
+* 2021-02-15
+    * BOJ 2839, 1978, 2581, 11653
+        * 1929 시간초과 실패
+
+* 2021-02-16
+    * [HUFS Missing Semester - 2. Shell & Shell Editors](https://www.notion.so/4923i/Shell-Shell-Editors-4b0d78a98eb5401b875c3c5f7c8d08a9) 수강 완료 및 실습
+        * PowerShell 권한 조정방법 문서 추가
+        * WSL 및 Ubuntu 설치, vi 실습
