@@ -120,3 +120,12 @@
     * [HUFS Missing Semester - 2. Shell & Shell Editors](https://www.notion.so/4923i/Shell-Shell-Editors-4b0d78a98eb5401b875c3c5f7c8d08a9) 수강 완료 및 실습
         * PowerShell 권한 조정방법 문서 추가
         * WSL 및 Ubuntu 설치, vi 실습
+
+* 2021-02-17
+    * HUFS Missing Semester - 3. Git & GitHub 수강 완료 및 실습
+        * commit message 틀을 만들 수 있음을 배움
+        * copy con 명령어 개념 습득
+    * BOJ 1929
+
+* 2021-02-18
+    * BOJ 4948
