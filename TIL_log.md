@@ -117,7 +117,7 @@
         * 1929 시간초과 실패
 
 * 2021-02-16
-    * [HUFS Missing Semester - 2. Shell & Shell Editors](https://www.notion.so/4923i/Shell-Shell-Editors-4b0d78a98eb5401b875c3c5f7c8d08a9) 수강 완료 및 실습
+    * HUFS Missing Semester - 2. Shell & Shell Editors 수강 완료 및 실습
         * PowerShell 권한 조정방법 문서 추가
         * WSL 및 Ubuntu 설치, vi 실습
 
@@ -129,3 +129,8 @@
 
 * 2021-02-18
     * BOJ 4948
+    * HUFS Missing Semester - 4. Google Workspace & Google Colab 수강 완료 및 실습
+        * Google Apps Script로 주소 메일로 보내는 실습
+        * Mail Merge 실습
+        * Google CoLab과 Github, Google Drive 연동하는 실습
+        * Youtube 데이터 분석 자동화 실습 및 해당 내용 Pandas로 시각화하는 실습
