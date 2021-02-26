@@ -20,3 +20,4 @@ a = Cookie()
 b = Cookie()
 ```
 
+* 객체와 인스턴스 instance는 어떤 차이가 있는가?
