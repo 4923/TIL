@@ -172,3 +172,13 @@
 * 2021-03-04
     * BOJ 2231
     * 자료구조 (전공) - 파이썬 클래스 단계별 복습
+
+* 2021-03-05
+    * [서로 다른 두 원격 저장소 병합하기](https://github.com/4923/TIL/blob/master/Git/Merge-different-reposotories-by-preserving-commit-logs.md)
+
+* 2021-03-06
+    * BOJ 756
+
+* 2021-03-07
+    * GNUVILL 인공지능 스터디 : 1주차 수강
+    * 자료구조 (전공) - 파이썬 클래스 단계별 복습 (2) 진행 중
