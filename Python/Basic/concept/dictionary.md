@@ -64,7 +64,7 @@
     * `dic.kget('key','default')`: 찾으려는 key 값이 없을 경우 default 값을 내보낼 수도 있다.
 * key값이 딕셔너리 안에 있는지 확인: `'key' in dic`
     * bool값을 반환한다.
-
+    
 * 두 dictionary를 합치기: `dict1.update(dict2)`
     * dict1의 마지막 item에 dict2의 item들이 이어붙여진다.
     * `.update()` 함수의 return 값은 `None` 이므로 제대로 합쳐졌는지 확인하기 위해서는 `dict1`를 출력하면 된다.
