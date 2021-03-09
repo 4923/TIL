@@ -85,3 +85,24 @@
 
     print(var1, var2)  # 1, 2
     ```
+    * 튜플을 활용한 함수의 리턴 값
+    1. for문을 사용할 때 지금까지는
+        ```py
+        for ind, val in enumerate(list):
+            print('{}번째 값: {}'.format(ind, val))
+        ```
+        위와 같이 변수 두개를 사용했다.
+
+    2. 하지만 unpacking을 사용하면 `ind` 와 `val`를 `a`로 대체할 수 있다.
+        ```py
+        for a in enumerate(list):
+            print('{}번째 값: {}'.format(a[0], a[1]))
+        ```
+        
+    3. unpacking이므로 *를 사용할 수도 있다.
+        ```py
+        for a in enumerate(list):
+            print('{}번째 값: {}'.format(*a))
+        ```
+
+    1, 2, 3번에서 실행한 코드의 값은 모두 동일하다.
