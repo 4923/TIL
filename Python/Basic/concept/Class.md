@@ -4,19 +4,20 @@
 1. [클래스의 필요성](#클래스는-왜-필요한가?)
 2. [문법](#문법)
 3. [용어](#용어)
-    * [1. 객체란?](#2-객체란?)
+    * [1. 객체란?](#1-객체란?)
         1. 객체와 인스턴스의 차이
         2. 클래스와 인스턴스의 관계
-    * [2. 메소드란?](#1-메소드란?)
+    * [2. 메소드란?](#2-메소드란?)
         1. `self`
-        2. 특수한 메소드
-            * `__init__(self)`
-            * `__str__(self)`
-    * [3. 멤버변수](#3-멤버변수)
-    * [4. 생성자와 소멸자](#4-생성자와-소멸자)
+    * [3. 특수한 메소드](#3-특수한-메소드)
+        1.  `__new__(cls)`
+        2. `__init__(self)`
+        3. `__str__(self)`
+    * [4. 멤버변수](#4-멤버변수)
+    * [5. 생성자와 소멸자](#5-생성자와-소멸자)
         1. 생성자
         2. 소멸자
-
+---
 
 ## 클래스는 왜 필요한가?
 여러대의 계산기로 계산을 수행한다고 할 때, 계산기 함수를 여러개를 만들 수도 있지만 클래스를 사용 할 수도 있다.<br>
@@ -26,32 +27,32 @@
 * 클래스와 인스턴스를 이용하면 데이터와 코드를 사람이 이해하기 쉽게 포장할 수 있다.
 * 생성된 클래스는 함수 처럼 `()`를 붙여 호출할 수 있다. `Class()`
 * 클래스의 사용 예
-    ```py
-    class Human():
-        '''인간'''
+```py
+class Human():
+    '''인간'''
 
-    person1 = Human()  # 인스턴스 생성
-    person2 = Human()  # 인스턴스 생성
+person1 = Human()  # 인스턴스 생성
+person2 = Human()  # 인스턴스 생성
 
-    # 인스턴스를 클래스처럼 사용할 수 있다.
-    person1.language = '한국어'
-    person2.language = 'English'
+# 인스턴스를 클래스처럼 사용할 수 있다.
+person1.language = '한국어'
+person2.language = 'English'
 
-    person1.person = '한국인'
-    person2.person = '인도인'
+person1.person = '한국인'
+person2.person = '인도인'
 
-    # 함수 선언
-    def speak():
-        print(f'{person.person}은 {person.language}를 사용합니다.')
+# 함수 선언
+def speak():
+    print(f'{person.person}은 {person.language}를 사용합니다.')
 
-    # 함수를 클래스에 적용 : 메소드 X -> 메소드 사용방법은 하단 참조
-    Human.speak = speak()
+# 함수를 클래스에 적용 : 메소드 X -> 메소드 사용방법은 하단 참조
+Human.speak = speak()
 
-    # 사용
-    # 아래 두 출력값은 같은 형식으로 출력된다.
-    speak(person1)  # 한국인은 한국어를 사용합니다.
-    person2.speak  # 인도인은 English를 사용합니다.
-    ```
+# 사용
+# 아래 두 출력값은 같은 형식으로 출력된다.
+speak(person1)  # 한국인은 한국어를 사용합니다.
+person2.speak  # 인도인은 English를 사용합니다.
+```
 
 ## 용어
 ### 1 객체란?
@@ -59,16 +60,16 @@
 다시 말해, 객체는 각각 **고유한 성격**을 가진다. <br>
 과자를 여러 개 만들 때, 과자 틀을 클래스에 비유한다면 과자 틀로 만들어진 각각의 과자는 객체라고 할 수 있을 것이다.<br>
 
-```py
-# class
-class Cookie:
-    pass
+    ```py
+    # class
+    class Cookie:
+        pass
 
-# object
-# 클래스의 결과값을 돌려받은 a와 b가 객체다.
-a = Cookie()
-b = Cookie()
-```
+    # object
+    # 클래스의 결과값을 돌려받은 a와 b가 객체다.
+    a = Cookie()
+    b = Cookie()
+    ```
 
 1. 객체와 인스턴스는 어떻게 다른가?
     > 객체는 개념이고 인스턴스는 실체다.
@@ -99,6 +100,30 @@ b = Cookie()
 ### 2 메소드란?
 * 메소드 method 란 클래스 안의 함수를 이르는 명칭이다. 
 * 선언 및 사용방법은 함수와 다르지 않다.
+```py
+# 메소드를 활용한 클래스 활용 예
+class Human():
+    '''인간'''
+
+    # person이라는 인스턴스에 name, weight 변수를 만들어 return하는 함수
+    def create(name, weight):
+        person = Human()
+        person.name = name
+        person.weight = weight
+        return person
+
+    def eat(self):
+        self.weight += 0.1
+
+    def walk(self):
+        self.weight -= 0.1
+
+person = Human.create("철수", 60.5)
+eat()  
+
+# 메소드가 아닌 함수를 호출하려면 person.eat = eat(person)을 선언하고
+# eat(person) 또는 person.eat을 호출해야했다.
+```
 1. **`self`**
     * 생성된 객체 자기자신을 나타내는 예약어
     * 메소드의 첫번째 인자는 `self`이며 인스턴스를 호출할 때 `self`를 사용한다.
@@ -106,37 +131,13 @@ b = Cookie()
         * 예를들어 Class_example 이라는 클래스의 method_example(self) 라는 메소드를 호출하려면 `Class_example.method_example()` 만 사용하면 된다. 
         * 그러나 메소드의 인자가 다음과 같이 두개 method_example2(self, argument_example) 라면 호출 방법은 다음과 같아진다. `Class_example.method_example2(argument_example)`
 
-    ```py
-    # 메소드를 활용한 클래스 활용 예
-    class Human():
-        '''인간'''
 
-        # person이라는 인스턴스에 name, weight 변수를 만들어 return하는 함수
-        def create(name, weight):
-            person = Human()
-            person.name = name
-            person.weight = weight
-            return person
-
-        def eat(self):
-            self.weight += 0.1
-        
-        def walk(self):
-            self.weight -= 0.1
-
-    person = Human.create("철수", 60.5)
-    eat()  
-
-    # 메소드가 아닌 함수를 호출하려면 person.eat = eat(person)을 선언하고
-    # eat(person) 또는 person.eat을 호출해야했다.
-    ```
-
-2. 특수한 메소드
+### 3 특수한 메소드
     * Python 에서 특수한 메소드는 메소드를 `__` 언더바 두개로 감싼다.
     * Special Method, Magic Method 라고도 부른다.
     * Python이 내부적으로 구현한 내장 메소드다.
 
-    **`__new(cls[,...])__`** : 객체 생성 함수
+1. **`__new(cls[,...])__`** : 객체 생성 함수
     1. 클래스 cls의 새 인스턴스를 만들기 위해 호출된다.
     2. 인스턴스를 생성할 때 가장 먼저 실행되는 함수다.
     3. 클래스 자기 자신 (cls) 을 숨겨진 인자로 받는다.
@@ -144,94 +145,97 @@ b = Cookie()
         * 이 때 cls 인스턴스를 돌려주지 않으면 `__init__()`은 호출되지 않는다.
     5. Allocator (할당함수) 로, Constructor (생성자)가 아니다.
 
-    **`__init__(self[,...])`** : 초기화 함수
+2. **`__init__(self[,...])`** : 초기화 함수
     1. `__new__()`에 의해 인스턴스가 만들어진 후, 호출자에게 돌려주기 위해 호출된다.
     2. 다시 말해, 인스턴스를 만드는 순간에 자동으로 호출된다.
         * 정리: `__new__()` 메소드가 인스턴스를 생성하면 `__init__()` 메소드가 이를 커스터마이징한다. (변수전달 등)
         * `__init__()`은 Class에 메모리를 할당하지 않는다.
     3. 주의! `__init__()` 메소드가 `None` 이외의 값을 돌려주면 실행 시간에 `TypeError`가 발생된다.
-        * 예시
-            ```py
-            class Human():
-                '''인간'''
-                def __init__(self):
-                    print("__init__이 실행되었습니다.")
-            
-            # 출력
-            person = Human()
-            # __init__이 실행되었습니다.
-            ```
-    2. 인자
+        ```py
+        # __init__ 예시
+        class Human():
+            '''인간'''
+            def __init__(self):
+                print("__init__이 실행되었습니다.")
+
+        # 출력
+        person = Human()
+        # __init__이 실행되었습니다.
+        ```
+
+    4. 인자
         * `self`는 새 인스턴스이며 그 외의 다른 인자를 포함 할 수 있다.
         * 이 때 self는 외의 다른 인자는 객체 생성자다.
-        * 예시
-            ```py
-            class Human():
-                '''인간'''
-                def __init__(self, name, weight):
-                    print("__init__이 실행되었습니다.")
-                    print(f"이름은 {name}이고 몸무게는 {weight} 입니다.")
-            
-            # 출력
-            person = Human("철수", 60)
-            # __init__이 실행되었습니다.
-            # 이름은 철수이고 몸무게는 60입니다.
-            ```
-            아무것도 하지 않았는데도 init 함수 안의 내용이 실행됨을 확인할 수 있다.
-    3. 위에서 사용한 create 함수/메소드를 대체할 수 있다.
-        * 예시
-            ```py
-            class Human():
-                '''인간'''
-                def __init__(self, name, weight):
-                    '''초기화 함수'''
-                    self.name = name
-                    self.weight = weight
-            
-            # 출력
-            person = Human ("철수", 60)
-            print(person.name)
-            print(person.weight)
-            # 철수
-            # 60
+        ```py
+        # self 활용 예시
+        class Human():
+            '''인간'''
+            def __init__(self, name, weight):
+                print("__init__이 실행되었습니다.")
+                print(f"이름은 {name}이고 몸무게는 {weight} 입니다.")
 
-            # 이전에 사용한 create 메소드
-            # 인스턴스명인 person이 self로 교체됨을 확인할 수 있다.
-            class Human():
-                '''인간'''
+        # 출력
+        person = Human("철수", 60)
+        # __init__이 실행되었습니다.
+        # 이름은 철수이고 몸무게는 60입니다.
 
-                # person이라는 인스턴스에 name, weight 변수를 만들어 return하는 함수
-                def create(name, weight):
-                    person = Human()
-                    person.name = name
-                    person.weight = weight
-                    return person
-            ```
+        # 아무것도 하지 않았는데도 init 함수 안의 내용이 실행됨을 확인할 수 있다.
+        ```
 
-                
-    **`__str__(self)`** : 문자열화 함수
+    5. 위에서 사용한 create 함수/메소드를 대체할 수 있다.
+        ```py
+        # create 함수와 비교
+        class Human():
+            '''인간'''
+            def __init__(self, name, weight):
+                '''초기화 함수'''
+                self.name = name
+                self.weight = weight
+
+        # 출력
+        person = Human ("철수", 60)
+        print(person.name)
+        print(person.weight)
+        # 철수
+        # 60
+
+        # 이전에 사용한 create 메소드
+        # 인스턴스명인 person이 self로 교체됨을 확인할 수 있다.
+        class Human():
+            '''인간'''
+
+            # person이라는 인스턴스에 name, weight 변수를 만들어 return하는 함수
+            def create(name, weight):
+                person = Human()
+                person.name = name
+                person.weight = weight
+                return person
+        ```
+
+3. **`__str__(self)`** : 문자열화 함수
     1. 인스턴스를 출력할 때 어떤 문자열을 출력할지 결정한다.
     2. 따로 print 처리 하지 않고 문자열을 return한다.
-        * 예시
-            ```py
-            class Human():
-                '''인간'''
-                def __init__(self, name, weight):
-                    self.name = name
-                    self.weight = weight
-                
-                def __str__(self):
-                    return f"{name}(몸무게 : {weight}kg)"
+        ```py
+        # __str__ 예시
+        class Human():
+            '''인간'''
+            def __init__(self, name, weight):
+                self.name = name
+                self.weight = weight
+
+            def __str__(self):
+                return f"{name}(몸무게 : {weight}kg)"
+
+        person = Human("철수", 60)
+        # 출력
+        print(person)
+        # 철수(몸무게 : 60)
+        ```
             
-            person = Human("철수", 60)
-            # 출력
-            print(person)
-            # 철수(몸무게 : 60)
-                
-### 3 멤버 변수
+### 4 멤버 변수
 * 클래스 안에 정의된 변수를 말한다.
 
-### 4 생성자와 소멸자
+### 5 생성자와 소멸자
 1. 생성자 Constructor
     * `def __init__(self[,...]):`
     * 파이썬의 생성자는 객체를 생성할 때 호출되는 메소드다.
