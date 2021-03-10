@@ -24,7 +24,7 @@
 * 클래스의 사용 예
     ```py
     class Human():
-        '사람'
+        '''인간'''
 
     person1 = Human()  # 인스턴스 생성
     person2 = Human()  # 인스턴스 생성
@@ -40,7 +40,7 @@
     def speak():
         print(f'{person.person}은 {person.language}를 사용합니다.')
 
-    # 함수를 클래스에 적용하려면 아래처럼 함수를 대입하면 된다. (클래스 안에 함수가 포함될 수 있으므로 블럭 안에 포함시켜도 쿠관)
+    # 함수를 클래스에 적용 : 메소드 X -> 메소드 사용방법은 하단 참조
     Human.speak = speak()
 
     # 사용
@@ -94,6 +94,39 @@ if list1 == list2:  # == 는 값을 비교하는 연산자다.
 ```
 
 ### 메소드 method 란?
+* 메소드란 클래스 안의 함수를 이르는 명칭이다. 
+* 선언 및 사용방법은 함수와 다르지 않다.
+* 메소드의 첫번째 인자는 `self`이며 인스턴스를 호출할 때 `self`를 사용한다.
+    * 단, 메소드를 호출할 때에는 self 인자는 호출하지 않는다. 예를들어 Class_example 이라는 클래스의 method_example(self) 라는 메소드를 호출하려면 `Class_example.method_example()` 만 사용하면 된다. 
+    * 그러나 메소드의 인자가 다음과 같이 두개 method_example2(self, argument_example) 라면 호출 방법은 다음과 같아진다. `Class_example.method_example2(argument_example)`
 
+## 문법
+```py
+# 메소드를 활용한 클래스 활용 예
+class Human():
+    '''인간'''
 
+    # person이라는 인스턴스에 name, weight 변수를 만들어 return하는 함수
+    def create(name, weight):
+        person = Human()
+        person.name = name
+        person.weight = weight
+        return person
+
+    def eat(self):
+        self.weight += 0.1
+    
+    def walk(self):
+        self.weight -= 0.1
+
+person = Human.create("철수", 60.5)
+eat()  
+
+# 메소드가 아닌 함수를 호출하려면 person.eat = eat(person)을 선언하고
+# eat(person) 또는 person.eat을 호출해야했다.
+```
 ### 생성자 constructor 와 소멸자 destructor
+
+
+## 참고
+* [프로그래머스/파이썬 입문](https://programmers.co.kr/learn/courses/2)
