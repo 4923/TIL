@@ -20,6 +20,7 @@
     * [6. 상속과 오버라이드](#6-상속과-오버라이드)
         1. 상속
         2. 오버라이드
+        3. `super()`
 ---
 
 ## 클래스는 왜 필요한가?
@@ -255,7 +256,7 @@ eat()
     * 리소스 해제 등 종료 작업을 위해 사용된다.
 
 ### 6 상속과 오버라이드
-* 상속 inheritance
+1. 상속 inheritance
     * 클래스의 인자로 다른 클래스를 받는 것.
     * 중복된 코드를 줄이기 위해 사용한다.
     * 사용 방법
@@ -263,49 +264,72 @@ eat()
         2. 독립된 기능을 하는 클래스의 인자로 부모 클래스를 받는다. == 자식클래스
         3. 자식클래스에 자식클래스만의 메소드를 추가한다.
         4. 사용방식은 일반적인 메소드 사용법과 동일하다.
-* 오버라이드 override
+2. 오버라이드 override
     * 부모 클래스의 메소드를 자식클래스에서 덮어쓰는 것
     * 사용방법
         1. 자식클래스에서 덮어쓰기를 원하는 메소드를 생성한다.
-            * 예: `wave(self)`, `wag(self)`
+            * 예: `wave(self)`
         2. 부모클래스의 메소드 이름과 동일한 메소드를 만든다.
             * 예: `greet()`
         3. 덮어쓴다.
             * 자식클래스의 메소드를 호출하려는 경우
                 1. 동일한 이름의 메소드에서 덮어쓰기를 원하는 메소드를 `self.덮어쓰기를원하는메소드()` 형식으로 호출한다.
-                * 예: `person.wave()`, `dog.wag()`
+                * 예: `person.wave()`
                 2. 부모클래스의 메소드가 아닌 자식 클래스의 메소드가 호출된다.
             * 단순히 덮어쓰려는 경우
                 1. `def greet(self):` 아래에 새로운 작동 방식을 명령한다.
+3. `super()`
+    * 자식클래스에서 부모클래스의 내용을 사용하고 싶을 때 사용한다.
+    * super().부모클래스내용
+    * 오버라이드와는 무엇이 다른가?
+        * 오버라이드로 충분하지 않을 때가 있다.
+        * 부모 클래스의 동작을 그대로 하면서, 무언가를 끼워넣고 싶을 때 사용한다.
+            * 예: `super().greet()`
+    * 부모의 내용을 가져오는 `super()` 함수는 `__init__`과 함께 자주 사용된다.
+        * 예: `super().__init__(name)`
 
 ```py
+# 상속과 오버라이드 예
 class Animal():  # 부모 클래스
-    def greet(self):
-        print("인사하다")
+    def __init__(self, name):
+        self.name = name
 
-class Cow():
+    def greet(self):
+        print(f"{self.name} 이/가 인사한다")
+
+class Cow(Animal):
     '''소'''  # 아무것도 안적으면 에러 발생하므로 주석을 추가한다.
     
 class Human(Animal):  # 자식 클래스
     def wave(self):
         print("손을 흔들다")
     def greet(self):
-        self.wave()
+        self.wave()  # 손을 흔들다.
 
 class Dog(Animal):  # 자식 클래스
+    def __init__ (self, name, emotion):  # __init__의 값 사용
+        super().__init__(name)
+        self.emotion = emotion
+
     def wag(self):
+        print(f"{self.emotion} 꼬리를 흔들면서",end=" ")  # 목표출력: 꼬리를 흔들면서 인사한다.
+
+    def greet(self):
         self.wag()
+        super().greet()  # 부모의 greet 메소드도 함께 사용하기 위해 super() 사용
 
 # 출력
-cow = Cow()
-cow.greet()  # 인사하다
+cow = Cow("소")
+cow.greet()  # 소 이/가 인사한다
 
-person = Human()
+person = Human("철수")
 person.greet()  # 손을 흔들다
 
-dog = Dog()
-dog.greet()  # 꼬리를 흔들다.
+dog = Dog("강아지","기쁘게")
+dog.greet()  # 기쁘게 꼬리를 흔들면서 강아지 이/가 인사한다
+# 위에서 부모 클래스의 __init__ 값을 빌려온 항목 : 강아지가
 ```
+
 
 
 
