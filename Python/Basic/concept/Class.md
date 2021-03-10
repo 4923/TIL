@@ -1,5 +1,4 @@
 # Class
-##### 참고 : [점프 투 파이썬](https://wikidocs.net/28)
 
 ## Contents
 1. [클래스의 필요성](#클래스는-왜-필요한가?)
@@ -249,6 +248,7 @@ b = Cookie()
     * 리소스 해제 등 종료 작업을 위해 사용된다.
 
 ## 참고
+* [점프 투 파이썬](https://wikidocs.net/28)
 * [프로그래머스/파이썬 입문](https://programmers.co.kr/learn/courses/2)
 * [__new__와 __init__의 차이](https://weeklyit.code.blog/2019/12/24/2019-12월-3주-python의-__init__과-__new__/)
 * [Python 공식 문서 3.3: 특수 메서드 이름들](https://docs.python.org/ko/3/reference/datamodel.html#object.__new__)
