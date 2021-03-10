@@ -96,7 +96,7 @@ if list1 == list2:  # == 는 값을 비교하는 연산자다.
 ### 메소드 method 란?
 * 메소드란 클래스 안의 함수를 이르는 명칭이다. 
 * 선언 및 사용방법은 함수와 다르지 않다.
-* `self`
+* **`self`**
     * 메소드의 첫번째 인자는 `self`이며 인스턴스를 호출할 때 `self`를 사용한다.
     * 단, 인스턴스의 매개변수를 전달할 때 self 인자는 **호출하지 않는다.**  
         * 예를들어 Class_example 이라는 클래스의 method_example(self) 라는 메소드를 호출하려면 `Class_example.method_example()` 만 사용하면 된다. 
@@ -127,8 +127,90 @@ if list1 == list2:  # == 는 값을 비교하는 연산자다.
     # eat(person) 또는 person.eat을 호출해야했다.
     ```
 
+### 특수한 메소드
+Python 에서 특수한 메소드는 메소드를 `__` 언더바 두개로 감싼다.
+
+**`__init__(self)`** : 초기화 함수
+1. 인스턴스를 만드는 순간에 자동으로 호출된다.
+    * 예시
+        ```py
+        class Human():
+            '''인간'''
+            def __init__(self):
+                print("__init__이 실행되었습니다.")
+        
+        # 출력
+        person = Human()
+        # __init__이 실행되었습니다.
+        ```
+2. `self`외의 다른 인자를 넣을 수도 있다.
+    * 예시
+        ```py
+        class Human():
+            '''인간'''
+            def __init__(self, name, weight):
+                print("__init__이 실행되었습니다.")
+                print(f"이름은 {name}이고 몸무게는 {weight} 입니다.")
+        
+        # 출력
+        person = Human("철수", 60)
+        # __init__이 실행되었습니다.
+        # 이름은 철수이고 몸무게는 60입니다.
+        ```
+        아무것도 하지 않았는데도 init 함수 안의 내용이 실행됨을 확인할 수 있다.
+3. 위에서 사용한 create 함수/메소드를 대체할 수 있다.
+    * 예시
+        ```py
+        class Human():
+            '''인간'''
+            def __init__(self, name, weight):
+                '''초기화 함수'''
+                self.name = name
+                self.weight = weight
+        
+        # 출력
+        person = Human ("철수", 60)
+        print(person.name)
+        print(person.weight)
+        # 철수
+        # 60
+
+        # 이전에 사용한 create 메소드
+        # 인스턴스명인 person이 self로 교체됨을 확인할 수 있다.
+        class Human():
+            '''인간'''
+
+            # person이라는 인스턴스에 name, weight 변수를 만들어 return하는 함수
+            def create(name, weight):
+                person = Human()
+                person.name = name
+                person.weight = weight
+                return person
+        ```
+
+            
+**`__str__(self)`** : 문자열화 함수
+1. 인스턴스를 출력할 때 어떤 문자열을 출력할지 결정한다.
+2. 따로 print 처리 하지 않고 문자열을 return한다.
+    * 예시
+        ```py
+        class Human():
+            '''인간'''
+            def __init__(self, name, weight):
+                self.name = name
+                self.weight = weight
+            
+            def __str__(self):
+                return f"{name}(몸무게 : {weight}kg)"
+        
+        person = Human("철수", 60)
+        # 출력
+        print(person)
+        # 철수(몸무게 : 60)
+                
+
 ### 생성자 constructor 와 소멸자 destructor
 
 
-## 참고
+## 참고0
 * [프로그래머스/파이썬 입문](https://programmers.co.kr/learn/courses/2)
