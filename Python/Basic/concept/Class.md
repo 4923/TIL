@@ -213,5 +213,5 @@ Python 에서 특수한 메소드는 메소드를 `__` 언더바 두개로 감�
 ### 생성자 constructor 와 소멸자 destructor
 
 
-## 참고0
+## 참고
 * [프로그래머스/파이썬 입문](https://programmers.co.kr/learn/courses/2)
