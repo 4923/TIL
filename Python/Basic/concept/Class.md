@@ -17,6 +17,7 @@
     * [5. 생성자와 소멸자](#5-생성자와-소멸자)
         1. 생성자
         2. 소멸자
+    * [6. 상속](#6-상속)
 ---
 
 ## 클래스는 왜 필요한가?
@@ -133,9 +134,9 @@ eat()
 
 
 ### 3 특수한 메소드
-    * Python 에서 특수한 메소드는 메소드를 `__` 언더바 두개로 감싼다.
-    * Special Method, Magic Method 라고도 부른다.
-    * Python이 내부적으로 구현한 내장 메소드다.
+* Python 에서 특수한 메소드는 메소드를 `__` 언더바 두개로 감싼다.
+* Special Method, Magic Method 라고도 부른다.
+* Python이 내부적으로 구현한 내장 메소드다.
 
 1. **`__new(cls[,...])__`** : 객체 생성 함수
     1. 클래스 cls의 새 인스턴스를 만들기 위해 호출된다.
@@ -250,6 +251,45 @@ eat()
     * 객체가 소멸할 때 호출된다. finalizer라고도 부른다.
     * CPython에서는 오직 한번만 호출된다.
     * 리소스 해제 등 종료 작업을 위해 사용된다.
+
+### 6 상속
+* inheritance
+* 클래스의 인자로 다른 클래스를 받는 것.
+* 중복된 코드를 줄이기 위해 사용한다.
+* 사용 방법
+    1. 공통되는 메소드를 부모클래스에 선언한다.
+    2. 독립된 기능을 하는 클래스의 인자로 부모 클래스를 받는다. == 자식클래스
+    3. 자식클래스에 자식클래스만의 메소드를 추가한다.
+    4. 사용방식은 일반적인 메소드 사용법과 동일하다.
+
+```py
+class Animal():  # 부모 클래스
+    def walk(self):
+        print("걷다")
+    def eat(self):
+        print("먹다")
+    
+class Human(Animal):  # 자식 클래스
+    def wave(self):
+        print("손을 흔들다")
+
+class Dog(Animal):  # 자식 클래스
+    def wag(self):
+        print("꼬리를 흔들다")
+
+# 출력
+person = Human()
+person.walk()  # 걷다
+person.eat()  # 먹다
+person.wave()  # 손을 흔들다
+
+dog = Dog()
+dog.walk()  # 걷다
+dog.eat()  # 먹다
+dog.wave()  # 꼬리를 흔들다.
+```
+
+
 
 ## 참고
 * [점프 투 파이썬](https://wikidocs.net/28)
