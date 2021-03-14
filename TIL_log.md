@@ -212,3 +212,16 @@
         * 예외를 만들어 처리하기 (Exception class)
         * [파이썬 입문](https://programmers.co.kr/learn/courses/2) 완강
             * => 다음으로 수강할 강의 : [파이썬을 파이썬답게](https://programmers.co.kr/learn/courses/4008)
+
+* 2021-03-14
+    * [제대로 시작하는 기초통계학 강의 수강](https://youtu.be/_SthhfH-XYM?list=PLsri7w6p16vtiu-mpViykeFQxzQqIV1gz) 
+        * 통계학 기본 (확률론, 기술통계)
+            * 확률론 기본
+                1. 확률과 의사결정 (4-1)
+                2. 확률변수의 평균과 분산 (4-2)
+                3. 확률 분포 (5-1), 이항 분포 (5-2), 포아송분포 (5-3)
+            * 기술통계
+                1. 중심위치, 중심경향도 (3-31)
+                2. 산포, 산포도 (3-32)
+                3. 공분산, 상관계수 (10-3)
+
