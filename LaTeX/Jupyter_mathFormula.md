@@ -38,7 +38,7 @@ Created: Jan 3, 2021 3:01 PM
 
 - log
 
-    $\log_밑 진수$ : `\log_a b`
+    $\log_base argument$ : `\log_base argument`
 
 ### 수열
 
