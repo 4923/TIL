@@ -1,7 +1,6 @@
 # Jupyter Notebook에서 수식 표현하기
 
 Created: Jan 3, 2021 3:01 PM
-경로: EBSSW
 언어: LaTeX
 
 ### LaTeX
@@ -37,6 +36,10 @@ Created: Jan 3, 2021 3:01 PM
 
     $x_{n}$ : `x_{n}`
 
+- log
+
+    $\log_밑 진수$ : `\log_a b`
+
 ### 수열
 
 - 시그마
@@ -61,6 +64,9 @@ Created: Jan 3, 2021 3:01 PM
 
     $\therefore$ : `\therefore`
 
+- 왜냐하면
+
+    $\because$ : `\because`
 ### 통계
 
 - 추정
