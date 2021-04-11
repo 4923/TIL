@@ -71,8 +71,53 @@ class SinglyLinkedList:
                 # case 2
                 else:  # 빈 리스트가 아니면
                     tail = self.head
-                    while tail.next != None:  # 다음 노드가 None이란건 그 노드가 마지막 노드라는 말
+                    while tail.next != None: # 다음 노드가 None이란건 그 노드가 마지막 노드라는 말
                         tail = tail.next  # 마지막 노드가 아닐 때에만 while이 돌아가므로 그 다음노드로 교체
                     tail.next = new_node  # tail을 교체
                 self.size += 1  # 새 노드를 추가했으므로 size에 1 추가
         ```
+    
+    3. `popFront`
+    * head를 삭제한 후 head의 (key, value)쌍 반환.
+    * 빈 리스트라면 error가 아니라 (None, None)을 반환해야한다.
+    * 일반 리스트의 list.pop(0)보다 빠르다. (pop : O(N), popFront : O(1))
+
+    ```py
+    def popFront(self):
+        key = value = None  # None으로 기본세팅
+        if len(self) > 0:   # 빈 리스트가 아닐 경우 head를 교체하는 작업 필요
+            key = self.head.key  # 반환하기 위해 key에 값 할당
+            value = self.head.value  # 반환하기 위해 value에 값 할당
+            self.head = self.head.next  # head 교체
+            self.size -= 1  # 노드를 삭제하므로 size에 1 감소
+        return key, value
+    ```
+
+    4. `popBack`
+    * tail을 삭제한 후 (key, value)쌍 반환
+    * 빈 리스트라면 (None, None) 반환
+    * 마지막보다 하나 이전 노드를 tail로 설정해야하므로 `previous` 노드를 탐색한다.
+    * `current`를 사용해 현재 노드가 tail인지 확인한다.
+
+    ```py
+    def popBack(self):
+        # 빈 리스트일 때
+        if len(self) == 0:
+            return None, None
+        # running technique
+        else:
+            previous, tail = None, self.head
+            # step 1 : tail에 도달할 때 까지 이동
+            while tail.next != None:  # 다음 노드가 None이란건 current == tail이라는 것
+                previous, tail = tail, tail.next
+            # step 2 : tail이 실제로 마지막 노드를 향할 때
+            key, value = tail.key, tail.value
+            # step 3 : tail을 교체
+            if self.head == tail:  # size == 1 일 때, previous == None이고 head == tail
+                self.head = None
+            else:
+                previous.next = tail.next  # tail 교체
+            # step 4 : size 감소
+            self.size -= 1
+            return key, value
+    ```
