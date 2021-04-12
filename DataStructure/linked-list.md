@@ -97,7 +97,6 @@ class SinglyLinkedList:
     * tail을 삭제한 후 (key, value)쌍 반환
     * 빈 리스트라면 (None, None) 반환
     * 마지막보다 하나 이전 노드를 tail로 설정해야하므로 `previous` 노드를 탐색한다.
-    * `current`를 사용해 현재 노드가 tail인지 확인한다.
 
     ```py
     def popBack(self):
@@ -121,3 +120,17 @@ class SinglyLinkedList:
             self.size -= 1
             return key, value
     ```
+
+    4. `search`
+    * 노드를 차례로 방문하는 연산이다.
+    * 인자인 key와 동일한 값을 갖는 노드를 반환하고 없을 시 **None을 반환한다.`
+    ```py
+    def search(self, key):
+        v = self.head
+        while v != None:  # while v라고 작성해도 무관하다.
+            if v.key == key:
+                return v
+        return None  # None이 아닌 v를 반환해도 된다. v가 향하는 마지막 값은 None이고 v에 실제 값이 할당되었다면 if문에서 이미 값이 반환되었을것이기 때문이다.
+    ```
+
+    
